@@ -1,0 +1,16 @@
+#footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 4rem 0;
+    .source-info {
+        text-align: center;
+        font-size: 1rem;
+        padding: 0 2rem;
+        line-height: 1.5rem;
+        .source-link {
+            color: #ffe030;
+        }
+    }
+}
