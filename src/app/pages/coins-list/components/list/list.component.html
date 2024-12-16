@@ -1,0 +1,52 @@
+<!-- A componentização é necessária? -->
+<div class="card">
+  <p-table
+    #dt
+    [value]="coins"
+    [paginator]="true"
+    [rows]="10"
+    [tableStyle]="{ 'min-width': '25rem' }"
+    [rowsPerPageOptions]="[10, 20, 30]"
+    (sortFunction)="customSort($event)"
+    [customSort]="true"
+  >
+    <!-- Filtro de pesquisa -->
+    <ng-template pTemplate="caption">
+      <div class="flex">
+        <p-iconfield iconPosition="left" class="ml-auto">
+          <p-inputicon>
+            <i class="pi pi-search"></i>
+          </p-inputicon>
+          <input
+            pInputText
+            type="text"
+            (input)="filterItems($event)"
+            placeholder="Pesquisar por nome"
+          />
+        </p-iconfield>
+      </div>
+    </ng-template>
+
+    <!-- Cabeçalho da tabela -->
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="0" style="width:25%">
+          Código ISO
+          <p-sortIcon field="0"></p-sortIcon>
+        </th>
+        <th pSortableColumn="1" style="width:75%">
+          Nome
+          <p-sortIcon field="1"></p-sortIcon>
+        </th>
+      </tr>
+    </ng-template>
+
+    <!-- Corpo da tabela -->
+    <ng-template pTemplate="body" let-code>
+      <tr *ngIf="code && code.length > 0"> <!-- Verifica se code não é undefined e possui elementos -->
+        <td>{{ code[0] }}</td> <!-- Código ISO -->
+        <td>{{ code[1] }}</td> <!-- Nome -->
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

@@ -18,6 +18,10 @@ export class HeaderComponent implements OnInit {
               label: 'Início',
               routerLink: '/'
           },
+          {
+            label: 'Listagem de Moedas',
+            routerLink: '/listagem-de-moedas'
+          },
       ]
   }
 }
