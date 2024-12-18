@@ -13,8 +13,8 @@ import { SupportedCodesService } from '../../../../shared/services/supported-cod
   selector: 'app-list',
   standalone: true,
   imports: [TableModule, CommonModule, IconFieldModule, InputIconModule],
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss'],
+  templateUrl: './views/list.component.html',
+  styleUrls: ['./views/list.component.scss'],
 })
 
 export class ListComponent {
