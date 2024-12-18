@@ -1,0 +1,93 @@
+@import "primeicons/primeicons.css";
+
+#currency-converter-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    min-height: 100vh;
+    padding: 6rem 0;
+
+    #page-title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    #converter-form {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        width: 90%;
+        max-width: 22rem;
+
+        .select-input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            width: 100%;
+
+            .select-input-label {
+                font-size: 1rem;
+                color: #ddd;
+            }
+
+            .select-input {
+                width: 100%;
+                padding: 0.5rem;
+                border: none;
+                border-radius: 0.3rem;
+                background-color: #222; 
+                color: #fff;
+            }
+        }
+
+        .invert-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent; // Amarelo para botão de inversão
+            color: #000;
+            border: none;
+            cursor: pointer;
+            transform: rotate(90deg);
+
+            .pi-arrow-right-arrow-left {
+                font-size: 1rem;
+                color: #fff;
+            }
+        }
+
+        .number-input-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            width: 100%;
+            .number-input-label {
+                font-size: 1rem;
+                color: #ddd;
+            }
+
+            .number-input {
+                width: 100%;
+                padding: 0.5rem;
+                border: none;
+                border-radius: 0.3rem;
+                background-color: #222;
+                color: #fff;
+            }
+        }
+
+        .converter-form-button {
+            width: 100%;
+            padding: .6rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            background-color: #FFD700;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+}

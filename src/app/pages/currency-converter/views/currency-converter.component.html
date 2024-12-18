@@ -1,0 +1,41 @@
+<main id="currency-converter-page">
+    <h1 id="page-title">Conversão de Moedas</h1>
+    <!-- Form -->
+    <form id="converter-form" [formGroup]="converterForm" (ngSubmit)="handleSubmit()">
+        <!-- Select input -->
+        <div class="select-input-container">
+            <label class="select-input-label" for="moeda-origem">Moeda origem:</label>
+            <select class="select-input" name="moeda-origem" id="moeda-origem" formControlName="from" required>
+                <option value="" disabled selected>Selecione uma moeda</option>
+                <option *ngFor="let coin of coins" [value]="coin[0]">{{ coin[1] }} ({{ coin[0] }})</option>
+            </select>
+        </div>
+        <!-- Botão de inverter moedas -->
+        <button class="invert-button" type="button" (click)="handleInvertCoins()">
+            <i class="pi pi-arrow-right-arrow-left"></i>
+        </button>
+        <!-- Select input -->
+        <div class="select-input-container">
+            <label class="select-input-label" for="moeda-destino">Moeda destino:</label>
+            <select class="select-input" name="moeda-destino" id="moeda-destino" formControlName="to" required>
+                <option value="" disabled selected>Selecione uma moeda</option>
+                <option *ngFor="let coin of coins" [value]="coin[0]">{{ coin[1] }} ({{ coin[0] }})</option>
+            </select>
+        </div>
+        <!-- Number input -->
+        <div class="number-input-container">
+            <label class="number-input-label" for="valor">Valor:</label>
+            <input class="number-input" type="number" name="valor" id="valor" formControlName="value" placeholder="0.00" required> 
+        </div>
+        <!-- Button Submit -->
+        <button class="converter-form-button" type="submit">Calcular Conversão</button>
+    </form>   
+
+     <!-- Componente que exibe resultado  -->
+    <div [ngStyle]="{ display: resultContainer ? 'flex' : 'none', 'flex-direction': 'column' }">
+        <p>{{conversionResult.value}} em {{conversionResult.from}} equiavale a:</p>
+        <p>{{conversionResult.conversion_result}} em {{conversionResult.to}}</p>
+        <p>Taxa de conversão utilizada: {{conversionResult.conversion_rate}}</p>
+        <button (click)="handleCloseResultContainer()">close</button>
+    </div>
+</main>

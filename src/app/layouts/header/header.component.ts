@@ -22,6 +22,10 @@ export class HeaderComponent implements OnInit {
             label: 'Listagem de Moedas',
             routerLink: '/listagem-de-moedas'
           },
+          {
+            label: 'Conversão de Moedas',
+            routerLink: '/conversao-de-moedas'
+          },
       ]
   }
 }
