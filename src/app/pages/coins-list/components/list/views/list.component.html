@@ -1,11 +1,10 @@
 <!-- A componentização é necessária? -->
-<div class="card">
+<div id="table-list" class="card">
   <p-table
     #dt
     [value]="coins"
     [paginator]="true"
     [rows]="10"
-    [tableStyle]="{ 'min-width': '25rem' }"
     [rowsPerPageOptions]="[10, 20, 30]"
     (sortFunction)="customSort($event)"
     [customSort]="true"
@@ -18,6 +17,7 @@
             <i class="pi pi-search"></i>
           </p-inputicon>
           <input
+            class="search-input"
             pInputText
             type="text"
             (input)="filterItems($event)"
@@ -30,11 +30,11 @@
     <!-- Cabeçalho da tabela -->
     <ng-template pTemplate="header">
       <tr>
-        <th pSortableColumn="0" style="width:25%">
+        <th pSortableColumn="0" style="width:30%">
           Código ISO
           <p-sortIcon field="0"></p-sortIcon>
         </th>
-        <th pSortableColumn="1" style="width:75%">
+        <th pSortableColumn="1" style="width:70%">
           Nome
           <p-sortIcon field="1"></p-sortIcon>
         </th>
