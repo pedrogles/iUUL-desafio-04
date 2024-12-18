@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-home',
   standalone: true,
   imports: [],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  templateUrl: './views/home.component.html',
+  styleUrl: './views/home.component.scss'
 })
 export class HomeComponent {
   title: string = "Conversor de Moedas";
