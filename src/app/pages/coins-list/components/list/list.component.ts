@@ -2,11 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { TableModule, Table } from 'primeng/table';
 import { CommonModule } from '@angular/common';
 import { SortEvent } from 'primeng/api';
-import { CoinsListService } from '../../services/coins-list.service';
 
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
-import { Coin } from '../../models/coin';
+import { Coin } from '../../../../shared/models/supported-codes.model';
+import { SupportedCodesService } from '../../../../shared/services/supported-codes/supported-codes.service';
+
 
 @Component({
   selector: 'app-list',
@@ -19,14 +20,18 @@ import { Coin } from '../../models/coin';
 export class ListComponent {
   @ViewChild('dt') dt!: Table; // Referência à tabela PrimeNG
 
-  coins: Coin[] = []; // Armazenará os dados da API
-  initialValue: Coin[] = []; // Valor inicial para restaurar os dados
+  coins!: Coin[]; // Armazenará os dados da API
+  initialValue!: Coin[]; // Valor inicial para restaurar os dados
   isSorted: boolean | null = null; // Controle de estado de ordenação
 
-  constructor(private coinsListService: CoinsListService) {}
+  constructor(private supportedCodesService: SupportedCodesService) {}
 
   ngOnInit() {
-    this.coinsListService.getCodes().subscribe({
+    this.getCodes();
+  }
+
+  private getCodes() {
+    this.supportedCodesService.getCodes().subscribe({
       next: (coins) => {
         this.coins = coins;
         this.initialValue = coins;
@@ -39,7 +44,6 @@ export class ListComponent {
   filterItems(event: Event) {
     const inputElement = event.target as HTMLInputElement; // Garante que é um input
     const value = inputElement.value.trim().toLowerCase(); // Remove espaços e transforma em minúsculo
-  
     if (value) {
       this.coins = this.initialValue.filter((coin) => 
         coin[1].toLowerCase().includes(value)
