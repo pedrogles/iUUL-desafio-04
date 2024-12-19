@@ -1,0 +1,30 @@
+<p-table [value]="conversionHistory" >
+    <ng-template #header>
+        <tr>
+            <th>Data da Conversão</th>
+            <th>Hora da Conversão</th>
+            <th>Valor Informado</th>
+            <th>Moeda Selecionada</th>
+            <th>Moeda Convertida</th>
+            <th>Resultado</th>
+            <th>Taxa</th>
+            <th>Ações</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-c>
+        <tr>
+            <td [ngStyle]="{ 'color' : c.isHigh_value ?  'red' : 'white' }">{{ c.conversion_date }}</td>
+            <td>{{ c.conversion_time }}</td>
+            <td>{{ c.input_value }}</td>
+            <td>{{ c.from_currency }}</td>
+            <td>{{ c.to_currency }}</td>
+            <td>{{ c.output_value }}</td>
+            <td>{{ c.exchange_rate }}</td>
+            <td>
+                <button (click)="this.deleteItem(c.id)">
+                    <i class="pi pi-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

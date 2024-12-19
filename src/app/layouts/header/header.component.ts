@@ -26,6 +26,10 @@ export class HeaderComponent implements OnInit {
             label: 'Conversão de Moedas',
             routerLink: '/conversao-de-moedas'
           },
+          {
+            label: 'Histórico de Conversões',
+            routerLink: '/historico-de-conversoes'
+          },
       ]
   }
 }
