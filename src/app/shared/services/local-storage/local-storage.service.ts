@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ConversionHistory } from '../../models/local-storage.model';
+import { Conversion } from '../../models/local-storage.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,7 @@ export class LocalStorageService {
   // Remove item especifico de um objeto atribuido ao value
   removeItemById(key: string, id: number): void {
     if(confirm('Você realmente deseja deletar esse historico?')) {
-      const storage: ConversionHistory[] | null = this.getItem(key)
+      const storage: Conversion[] | null = this.getItem(key)
       if(storage!.length === 1) {
           this.removeItem(key)
           location.reload();

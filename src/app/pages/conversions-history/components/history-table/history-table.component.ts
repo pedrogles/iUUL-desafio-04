@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { CommonModule } from '@angular/common';
 import { LocalStorageService } from '../../../../shared/services/local-storage/local-storage.service';
-import { ConversionHistory } from '../../../../shared/models/local-storage.model';
+import { Conversion } from '../../../../shared/models/local-storage.model';
 
 @Component({
   selector: 'app-history-table',
@@ -12,7 +12,7 @@ import { ConversionHistory } from '../../../../shared/models/local-storage.model
   styleUrl: './views/history-table.component.scss'
 })
 export class HistoryTableComponent {
-  conversionHistory!: ConversionHistory[]
+  conversionHistory!: Conversion[]
 
   constructor(private localStorageService: LocalStorageService) {}
 
